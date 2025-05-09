@@ -2,9 +2,18 @@
 {
 	internal class Program
 	{
+
+
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello, World);
+			var sorkerdesek = Sorkerdes.BeolvasFajlbol("sorkerdes.txt");
+
+			foreach (var kerdes in sorkerdesek)
+			{
+				kerdes.Kiir();
+				Console.WriteLine();
+			}
+
 		}
 	}
 }
