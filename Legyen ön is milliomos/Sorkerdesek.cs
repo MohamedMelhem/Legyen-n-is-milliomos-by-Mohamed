@@ -8,5 +8,14 @@ namespace Legyen_ön_is_milliomos
 {
 	internal class Sorkerdesek
 	{
+		string helyesValasz;
+		string kerdes;
+		List<string> valaszok = new List<string>();
+
+
+
+
+
+	
 	}
 }

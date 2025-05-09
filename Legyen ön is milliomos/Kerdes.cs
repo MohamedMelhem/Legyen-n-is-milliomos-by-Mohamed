@@ -8,5 +8,7 @@ namespace Legyen_ön_is_milliomos
 {
 	internal class Kerdes
 	{
+		private List<Kerdes> osszes = new List<Kerdes>();
+
 	}
 }
