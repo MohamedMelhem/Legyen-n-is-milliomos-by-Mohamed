@@ -29,7 +29,8 @@ namespace Legyen_ön_is_milliomos
         {
             return $"({kategoria}) Kérdés: {kerdesszoveg}\n" +
                 $"Válaszok: A: {valaszok[0]}  B: {valaszok[1]}\n" +
-                $"C: {valaszok[2]}  D: {valaszok[3]}";
+                $"C: {valaszok[2]}  D: {valaszok[3]}\n" +
+                $"helyes valasz : {helyesvalasz}";
         }
 
         public int Id { get => id; set => id = value; }
