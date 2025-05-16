@@ -25,7 +25,7 @@ namespace Legyen_ön_is_milliomos
                 kerdesLista.Add(new Kerdes(sor));
             }
         }
-
+               
         public Sorkerdes VeletlenSorkerdesKivalasztas()
         {
             int index = rand.Next(sorkerdesLista.Count);
