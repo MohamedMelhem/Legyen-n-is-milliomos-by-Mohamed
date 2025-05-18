@@ -67,7 +67,13 @@ namespace Legyen_ön_is_milliomos
                     if (input.Length == 1 && megengedettValaszok.Contains(input[0]))
                     {
                         valaszolva = EllenorizValaszt(input, kerdes);
-                        if (!valaszolva) return;
+                        if (!valaszolva) 
+                        {
+                            GarantaltNyeremeny();
+                            return;
+                        }
+                        
+
                         if (Megalle())
                         {
                             return;
@@ -102,6 +108,22 @@ namespace Legyen_ön_is_milliomos
             return false;
           
 
+        }
+
+        private void GarantaltNyeremeny()
+        {
+            int index = 0;
+            if (kerdesSzint > 5)
+            {
+                index = 5;
+            }
+            if (kerdesSzint > 10)
+            {
+                index = 10;
+            }
+
+            Console.WriteLine($"Sajnos Hibás Választ adott meg.\n" +
+                $" Viszont garantált nyereméyne : {nyeremenyek[index]}");
         }
                                               
         private bool EllenorizValaszt(string input, Kerdes kerdes)
