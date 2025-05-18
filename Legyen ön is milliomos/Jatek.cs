@@ -9,7 +9,7 @@ namespace Legyen_ön_is_milliomos
 	internal class Jatek
 	{
         Kerdesek kerdesek;
-        int kerdesSzint = 0;
+        int kerdesSzint = 1;
 
 
         string[] nyeremenyek = {
@@ -21,6 +21,8 @@ namespace Legyen_ön_is_milliomos
         {
             this.kerdesek = kerdesek;
         }
+
+
 
         public void Inditas()
         {
@@ -46,15 +48,15 @@ namespace Legyen_ön_is_milliomos
         }
         private void JatekInditasa()
         {
-            while (kerdesSzint < 15)
+            while (kerdesSzint < 16)
             {
-                Kerdes kerdes = kerdesek.VeletlenKerdesKivalasztas();
+                Kerdes kerdes = kerdesek.VeletlenKerdesKivalasztas(kerdesSzint);
                 bool valaszolva = false;
                 List<char> megengedettValaszok = new List<char> { 'A', 'B', 'C', 'D' };
 
                 while (!valaszolva)
                 {
-                    Console.WriteLine($"\n{kerdesSzint + 1}. kérdés - Nyeremény: {nyeremenyek[kerdesSzint + 1]}");
+                    Console.WriteLine($"\n{kerdesSzint}. kérdés - Nyeremény: {nyeremenyek[kerdesSzint]}");
                     Console.WriteLine(kerdes);
 
 
@@ -66,15 +68,40 @@ namespace Legyen_ön_is_milliomos
                     {
                         valaszolva = EllenorizValaszt(input, kerdes);
                         if (!valaszolva) return;
+                        if (Megalle())
+                        {
+                            return;
+                        }
                     }
                     else
                     {
                         Console.WriteLine("Érvénytelen válasz. Kérjük, válasszon a megadott lehetőségek közül.");
                     }
+                    
                 }
             }
 
             Console.WriteLine("\nGRATULÁLOK! Ön megnyerte a főnyereményt: 40 000 000 Ft!");
+        }
+
+        private bool Megalle()
+        {
+            string valasz;
+            if (kerdesSzint != 1 && kerdesSzint != 5 && kerdesSzint != 10)
+            {
+                Console.WriteLine("Szeretne e megállni?(i:igen / n: nem");
+                valasz =  Console.ReadLine();
+                if (valasz == "i")
+                {
+                    Console.WriteLine($"Megállt a játékba, Köszönjük résztvételét\n" +
+                        $"Nyereménye: {nyeremenyek[kerdesSzint]}");
+
+                    return true;
+                }
+            }
+            return false;
+          
+
         }
                                               
         private bool EllenorizValaszt(string input, Kerdes kerdes)

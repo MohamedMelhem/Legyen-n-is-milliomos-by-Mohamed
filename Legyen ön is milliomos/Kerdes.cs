@@ -27,7 +27,7 @@ namespace Legyen_ön_is_milliomos
 
         public override string? ToString()
         {
-            return $"({kategoria}) Kérdés: {kerdesszoveg}\n" +
+            return $"id: {id} ({kategoria}) Kérdés: {kerdesszoveg}\n" +
                 $"Válaszok: A: {valaszok[0]}  B: {valaszok[1]}\n" +
                 $"C: {valaszok[2]}  D: {valaszok[3]}\n" +
                 $"helyes valasz : {helyesvalasz}";
