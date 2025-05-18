@@ -56,10 +56,12 @@ namespace Legyen_ön_is_milliomos
 
                 while (!valaszolva)
                 {
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine($"\n{kerdesSzint}. kérdés - Nyeremény: {nyeremenyek[kerdesSzint]}");
+                    Console.ForegroundColor= ConsoleColor.White;
                     Console.WriteLine(kerdes);
 
-
+                    Console.Write("Adja meg a válaszát: ");
                     string input = Console.ReadLine().Trim().ToUpper();
 
 
@@ -96,11 +98,12 @@ namespace Legyen_ön_is_milliomos
             if (kerdesSzint != 1 && kerdesSzint != 5 && kerdesSzint != 10)
             {
                 Console.WriteLine("Szeretne e megállni?(i:igen / n: nem");
+                Console.Write("Adja meg a válaszát: ");
                 valasz =  Console.ReadLine();
                 if (valasz == "i")
                 {
                     Console.WriteLine($"Megállt a játékba, Köszönjük résztvételét\n" +
-                        $"Nyereménye: {nyeremenyek[kerdesSzint]}");
+                        $"Nyereménye: {nyeremenyek[kerdesSzint-1]}");
 
                     return true;
                 }
@@ -131,12 +134,16 @@ namespace Legyen_ön_is_milliomos
             if (input[0] == kerdes.Helyesvalasz[0])
             {  
                 kerdesSzint++;
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\nHelyes válasz!");
+                Console.ForegroundColor= ConsoleColor.White;
                 return true;
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"\nRossz válasz! A helyes válasz: {kerdes.Helyesvalasz}");
+                Console.ForegroundColor= ConsoleColor.White;
                 Console.WriteLine($"Ön nyert: {nyeremenyek[Math.Min(kerdesSzint, 5)]}");
                 return false;
             }
