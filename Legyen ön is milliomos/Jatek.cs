@@ -76,8 +76,23 @@ namespace Legyen_ön_is_milliomos
 
             Console.WriteLine("\nGRATULÁLOK! Ön megnyerte a főnyereményt: 40 000 000 Ft!");
         }
-
-
+                                              
+        private bool EllenorizValaszt(string input, Kerdes kerdes)
+        {
+            if (input[0] == kerdes.Helyesvalasz[0])
+            {  
+                kerdesSzint++;
+                Console.WriteLine("\nHelyes válasz!");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine($"\nRossz válasz! A helyes válasz: {kerdes.Helyesvalasz}");
+                Console.WriteLine($"Ön nyert: {nyeremenyek[Math.Min(kerdesSzint, 5)]}");
+                return false;
+            }
+        }
+             
 
 
 
