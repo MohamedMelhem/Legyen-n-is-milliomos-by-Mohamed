@@ -31,10 +31,20 @@ namespace Legyen_ön_is_milliomos
             int index = rand.Next(sorkerdesLista.Count);
             return sorkerdesLista[index];
         }
-        public Kerdes VeletlenKerdesKivalasztas()
+        public Kerdes VeletlenKerdesKivalasztas(int kerdesszint)
         {
-            int index = rand.Next(kerdesLista.Count);
-            return kerdesLista[index];
+            List<Kerdes> szintKerdes = new List<Kerdes>();
+            for (int i = 0; i < kerdesLista.Count; i++)
+            {
+                if (kerdesszint == kerdesLista[i].Id)
+                {
+                    szintKerdes.Add(kerdesLista[i]);
+                    
+                }
+            }
+            int index = rand.Next(szintKerdes.Count);
+            return szintKerdes[index];
+
         }
 
 
