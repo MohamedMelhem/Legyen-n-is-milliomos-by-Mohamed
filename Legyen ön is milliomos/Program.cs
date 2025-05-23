@@ -6,7 +6,7 @@
         {
             Kerdesek kerdesek = new Kerdesek("kerdes.txt","sorkerdes.txt");
             Jatek jatek = new Jatek(kerdesek);
-            jatek.Inditas();
-        }
+            jatek.Inditas(); 
+        } 
     }
 }
