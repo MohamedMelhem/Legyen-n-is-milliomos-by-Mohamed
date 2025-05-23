@@ -37,7 +37,9 @@ namespace Legyen_ön_is_milliomos
 			if (valasz == sorkerdes.Helyessorrend)
 			{
 				Console.WriteLine("\nHelyes sorrend! Kezdődik a játék!");
-				JatekInditasa();
+                Console.WriteLine($"                             5000 ft\n                         10 000 Ft 25 000ft 50 000ft \n        100 000 ft 200 000ft 300 000ft 500 000ft 800 000ft\n  1 500 000ft 3 000 000 5 000 000 10 000 000 20 000 000 40 000 000");
+                Console.WriteLine();
+                JatekInditasa();
 			}
 			else
 			{
@@ -46,6 +48,9 @@ namespace Legyen_ön_is_milliomos
 			}
 		}
 
+		private void Nyerenyemek() { 
+		
+		}
 		private void JatekInditasa()
 		{
 			while (kerdesSzint < 16)
@@ -56,7 +61,8 @@ namespace Legyen_ön_is_milliomos
 
 				while (!valaszolva)
 				{
-					Console.ForegroundColor = ConsoleColor.Green;
+
+                    Console.ForegroundColor = ConsoleColor.Green;
 					Console.WriteLine($"\n{kerdesSzint}. kérdés - Nyeremény: {nyeremenyek[kerdesSzint]}");
 					Console.ForegroundColor = ConsoleColor.White;
 					Console.WriteLine(kerdes);
@@ -70,15 +76,16 @@ namespace Legyen_ön_is_milliomos
 					Console.Write("Adja meg a válaszát vagy segítség kérését: ");
 					string input = Console.ReadLine().Trim().ToUpper();
 
-					if (input == "F" && kozonsegindex < 0)
+					if (input == "F" && felezoindex < 0)
 					{
-						kozonsegindex ++;
+						felezoindex ++;
 						FelezosSegitseg(kerdes);
 						felezosHasznalt = true;
 						continue;
 					}
-					if (input == "K" && !kozonsegiKerdesHasznalt)
+					if (input == "K" && kozonsegindex < 0)
 					{
+						kozonsegindex ++;
 						KozoensegiKerdest(kerdes);
 						kozonsegiKerdesHasznalt = true;
 						continue;
